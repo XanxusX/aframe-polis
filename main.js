@@ -1,7 +1,7 @@
 let scene = document.querySelector('a-scene');
 
 const getRandomPosition = () => Math.floor( 50 - (Math.random() * 100))
-const getRandomPositionY = () => Math.floor( (Math.random() * 10) + 10 )
+const getRandomPositionY = () => Math.floor( (Math.random() * 20) + 20 )
 const getRandomColor = () => {
   let letters = '0123456789ABCDEF';
   let color = '#';
@@ -25,7 +25,7 @@ const createBall = async (num) => {
   ball.setAttribute('id', 'sphere' + num);
   ball.setAttribute('position', { x: getRandomPosition(), y: getRandomPositionY(), z: getRandomPosition() })
   ball.setAttribute('color', getRandomColor());
-  ball.setAttribute('scale', '0.5 0.5 0.5');
+  /* ball.setAttribute('scale', '0.5 0.5 0.5'); */
   ball.setAttribute('animation', 'property: position; to: ' + getRandomPosition() + ' ' + getRandomPositionY() + ' ' + getRandomPosition() + '; dir: alternate;  ');
   scene.appendChild(ball);
 }
