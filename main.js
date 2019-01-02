@@ -23,10 +23,10 @@ const getRandomScale = () => {
 const createBall = async (num) => {
   let ball = document.createElement('a-sphere');
   ball.setAttribute('id', 'sphere' + num);
-  ball.setAttribute('position', { x: getRandomPosition(), y: getRandomPositionY(), z: getRandomPosition() })
+  ball.setAttribute('position', { x: getRandomPosition(), y: getRandomPosition(), z: getRandomPosition() })
   ball.setAttribute('color', getRandomColor());
-  /* ball.setAttribute('scale', '0.5 0.5 0.5'); */
-  ball.setAttribute('animation', 'property: position; to: ' + getRandomPosition() + ' ' + getRandomPositionY() + ' ' + getRandomPosition() + '; dir: alternate;  ');
+/*   ball.setAttribute('scale', '1.5 1.5 1.5'); */
+  ball.setAttribute('animation', 'property: position; to: ' + getRandomPosition() + ' ' + getRandomPosition() + ' ' + getRandomPosition() + '; dir: alternate;  ');
   scene.appendChild(ball);
 }
 
@@ -34,13 +34,13 @@ const addAnimation = async (num) => {
   setInterval( () => {
     let sphere = scene.querySelector('#sphere' + num)
     let position = sphere.getAttribute('position')
-    sphere.setAttribute('animation__2', 'property: position; from: ' + position.x + ' ' + position.y + ' ' +position.z + '; to: ' + getRandomPosition() + ' ' + getRandomPositionY() + ' ' + getRandomPosition() + ';  dir: alternate;'); 
+    sphere.setAttribute('animation__2', 'property: position; from: ' + position.x + ' ' + position.y + ' ' +position.z + '; to: ' + getRandomPosition() + ' ' + getRandomPosition() + ' ' + getRandomPosition() + ';  dir: alternate;'); 
   }, 3000);
 }
 
 const init = async () => {
   let num = 0
-  while( num < 50 ) {
+  while( num < 100 ) {
     await createBall(num)
     await addAnimation(num)
     num++
